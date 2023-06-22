@@ -9697,6 +9697,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lab
       objectReference: {fileID: 0}
+    - target: {fileID: 2641956623775939120, guid: c2559fe1419be4042bf09c9f8ac2e6dc,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0d550565c06d79645b7efc18b9ccdda7, type: 2}
     - target: {fileID: 6829361313938407145, guid: c2559fe1419be4042bf09c9f8ac2e6dc,
         type: 3}
       propertyPath: m_RootOrder
