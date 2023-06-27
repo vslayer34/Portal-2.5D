@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     PlayerInputAction playerInput;
     Rigidbody rb;
+    PlayerAnimations animationsScript;
 
     float movementinput;
     float speed = 10.0f;
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animationsScript = GetComponentInChildren<PlayerAnimations>();
         rb = GetComponent<Rigidbody>();
         playerInput.Player.Jump.performed += Jump;
     }
@@ -41,7 +43,6 @@ public class PlayerController : MonoBehaviour
 
     void Jump(CallbackContext context)
     {
-        Debug.Log("Jump");
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 
@@ -49,6 +50,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 movementDirection = new Vector3(movementinput * speed, 0.0f, 0.0f) * Time.fixedDeltaTime;
         rb.position += movementDirection;
+        animationsScript.RunForwardAnimations(Mathf.Abs(movementDirection.x));
     }
 
     void OnDisable()
